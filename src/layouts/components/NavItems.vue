@@ -1,20 +1,19 @@
 <script setup>
-import VerticalNavSectionTitle from '@/@layouts/components/VerticalNavSectionTitle.vue';
-import VerticalNavGroup from '@layouts/components/VerticalNavGroup.vue';
-import VerticalNavLink from '@layouts/components/VerticalNavLink.vue';
+import VerticalNavSectionTitle from '@/@layouts/components/VerticalNavSectionTitle.vue'
+import VerticalNavGroup from '@layouts/components/VerticalNavGroup.vue'
+import VerticalNavLink from '@layouts/components/VerticalNavLink.vue'
 </script>
 
 <template>
   <!-- 👉 Dashboards -->
   <VerticalNavGroup
+    v-if="userRole === 'admin'"
     :item="{
       title: 'Programa',
       badgeClass: 'bg-error',
       icon: 'ri-home-smile-line',
-     
     }"
   >
-    
     <VerticalNavLink
       :item="{
         title: 'Crear Programa',
@@ -22,86 +21,78 @@ import VerticalNavLink from '@layouts/components/VerticalNavLink.vue';
         to: 'programa',
       }"
     />
-   
   </VerticalNavGroup>
 
   <VerticalNavGroup
-  :item="{
-    title: 'Competencia',
-    badgeClass: 'bg-error',
-    icon: 'ri-home-smile-line',
-   
-  }"
->
-
-<VerticalNavLink
+    :item="{
+      title: 'Competencia',
+      badgeClass: 'bg-error',
+      icon: 'ri-home-smile-line',
+    }"
+  >
+    <VerticalNavLink
       :item="{
         title: 'Crear Competencias',
         badgeClass: 'bg-light-primary text-primary',
         to: 'competencia',
       }"
     />
-</VerticalNavGroup>
+  </VerticalNavGroup>
 
-<VerticalNavGroup
-  :item="{
-    title: 'Asociacion',
-    badgeClass: 'bg-error',
-    icon: 'ri-home-smile-line',
-   
-  }"
->
-
-<VerticalNavLink
+  <VerticalNavGroup
+    v-if="userRole === 'admin'"
+    :item="{
+      title: 'Asociacion',
+      badgeClass: 'bg-error',
+      icon: 'ri-home-smile-line',
+    }"
+  >
+    <VerticalNavLink
       :item="{
         title: 'Crear asocacion',
         badgeClass: 'bg-light-primary text-primary',
         to: 'programacompetencia',
       }"
     />
-</VerticalNavGroup>
-
+  </VerticalNavGroup>
 
   <!-- 👉 Front Pages -->
   <VerticalNavGroup
     :item="{
       title: 'Resultado Aprendizaje',
       icon: 'ri-file-copy-line',
-       }"
+    }"
   >
     <VerticalNavLink
       :item="{
         title: 'Res. Aprendizaje',
         to: 'resultado_aprendizaje',
-       
       }"
     />
-    
   </VerticalNavGroup>
   <VerticalNavGroup
-  :item="{
-    title: 'Usuarios',
-    badgeClass: 'bg-error',
-    icon: 'ri-home-smile-line',
-  }"
->
-  <VerticalNavLink
     v-if="userRole === 'admin'"
     :item="{
-      title: 'Register',
-      icon: 'ri-user-add-line',
-      to: 'register',
+      title: 'Usuarios',
+      badgeClass: 'bg-error',
+      icon: 'ri-home-smile-line',
     }"
-  />
-  <VerticalNavLink
-    v-if="userRole === 'admin'"
-    :item="{
-      title: 'Asignar Programa',
-      icon: 'ri-user-add-line',
-      to: 'asignar-programa',
-    }"
-  />
-</VerticalNavGroup>
+  >
+    <VerticalNavLink
+      :item="{
+        title: 'Register',
+        icon: 'ri-user-add-line',
+        to: 'register',
+      }"
+    />
+    <VerticalNavLink
+      :item="{
+        title: 'Asignar Programa',
+        icon: 'ri-user-add-line',
+        to: 'asignar-programa',
+      }"
+    />
+  </VerticalNavGroup>
 
   <!-- 👉 Apps & Pages -->
   <VerticalNavSectionTitle
@@ -158,7 +149,6 @@ import VerticalNavLink from '@layouts/components/VerticalNavLink.vue';
     }"
   />
 
-  
   <VerticalNavLink
     :item="{
       title: 'Error',

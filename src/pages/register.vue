@@ -208,10 +208,11 @@ export default {
         this.dialog = true
 
         const response = await axios.post('http://localhost:3000/auth/register', this.paquete, {
-          headers: {
-            Authorization: `Bearer ${this.$store.getters.getUser.access_token}`,
-          },
-        })
+            headers: {
+              Authorization: `Bearer ${this.$store.getters.getUser.access_token}`,
+            },
+         }
+       )
 
         console.log(response.data) // Suponiendo que la respuesta incluye un mensaje.
         this.$notify({ text: 'Usuario guardado con éxito...', type: 'success' }) // Cambia el tipo según sea necesario);
