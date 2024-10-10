@@ -30,7 +30,8 @@
     "vue3-apexcharts": "^1.5.2",
     "vue3-perfect-scrollbar": "^2.0.0",
     "vuetify": "3.6.13",
-    "vuex": "^4.1.0",
+    "vuex": "^4.0.2",
+    "vuex-persistedstate": "^4.1.0",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
@@ -55,7 +56,7 @@
     "eslint-plugin-vue": "^9.19.2",
     "postcss-html": "^1.5.0",
     "postcss-scss": "^4.0.9",
-    "sass": "^1.76.0",
+    "sass-embedded": "^1.79.4",
     "stylelint": "16.7.0",
     "stylelint-codeguide": "2.0.0",
     "stylelint-config-idiomatic-order": "10.0.0",

@@ -19,7 +19,7 @@ import VerticalNavLink from '@layouts/components/VerticalNavLink.vue';
       :item="{
         title: 'Crear Programa',
         badgeClass: 'bg-light-primary text-primary',
-        to: '/programa',
+        to: 'programa',
       }"
     />
    
@@ -38,7 +38,7 @@ import VerticalNavLink from '@layouts/components/VerticalNavLink.vue';
       :item="{
         title: 'Crear Competencias',
         badgeClass: 'bg-light-primary text-primary',
-        to: '/competencia',
+        to: 'competencia',
       }"
     />
 </VerticalNavGroup>
@@ -56,12 +56,10 @@ import VerticalNavLink from '@layouts/components/VerticalNavLink.vue';
       :item="{
         title: 'Crear asocacion',
         badgeClass: 'bg-light-primary text-primary',
-        to: '/programacompetencia',
+        to: 'programacompetencia',
       }"
     />
 </VerticalNavGroup>
-
-
 
 
   <!-- 👉 Front Pages -->
@@ -74,12 +72,36 @@ import VerticalNavLink from '@layouts/components/VerticalNavLink.vue';
     <VerticalNavLink
       :item="{
         title: 'Res. Aprendizaje',
-        to: '/resultado_aprendizaje',
+        to: 'resultado_aprendizaje',
        
       }"
     />
     
   </VerticalNavGroup>
+  <VerticalNavGroup
+  :item="{
+    title: 'Usuarios',
+    badgeClass: 'bg-error',
+    icon: 'ri-home-smile-line',
+  }"
+>
+  <VerticalNavLink
+    v-if="userRole === 'admin'"
+    :item="{
+      title: 'Register',
+      icon: 'ri-user-add-line',
+      to: 'register',
+    }"
+  />
+  <VerticalNavLink
+    v-if="userRole === 'admin'"
+    :item="{
+      title: 'Asignar Programa',
+      icon: 'ri-user-add-line',
+      to: 'asignar-programa',
+    }"
+  />
+</VerticalNavGroup>
 
   <!-- 👉 Apps & Pages -->
   <VerticalNavSectionTitle
@@ -136,20 +158,7 @@ import VerticalNavLink from '@layouts/components/VerticalNavLink.vue';
     }"
   />
 
-  <VerticalNavLink
-    :item="{
-      title: 'Login',
-      icon: 'ri-login-box-line',
-      to: '/login',
-    }"
-  />
-  <VerticalNavLink
-    :item="{
-      title: 'Register',
-      icon: 'ri-user-add-line',
-      to: '/register',
-    }"
-  />
+  
   <VerticalNavLink
     :item="{
       title: 'Error',
@@ -260,3 +269,12 @@ import VerticalNavLink from '@layouts/components/VerticalNavLink.vue';
     }"
   />
 </template>
+<script>
+export default {
+  computed: {
+    userRole() {
+      return this.$store.state.user.rol // Obtener el rol desde el store
+    },
+  },
+}
+</script>
