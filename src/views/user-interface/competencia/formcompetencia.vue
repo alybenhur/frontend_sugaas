@@ -78,7 +78,11 @@ export default {
       if (this.$refs.form.validate()) {
         try {
           this.dialog=true  
-          const response = await axios.post('http://localhost:3000/competencia/', this.paquete);
+          const response = await axios.post('http://localhost:3000/competencia/', this.paquete, {
+            headers: {
+              Authorization: `Bearer ${this.$store.getters.getUser.access_token}`,
+            },
+         });
 
           console.log(response.data)// Suponiendo que la respuesta incluye un mensaje.
           this.$notify({text: 'Competencia guardada con éxito...',
