@@ -12,6 +12,8 @@
     "postinstall": "npm run build:icons"
   },
   "dependencies": {
+    "@cloudinary/url-gen": "^1.21.0",
+    "@cloudinary/vue": "^1.12.1",
     "@floating-ui/dom": "1.6.8",
     "@iconify-json/bxl": "^1.1.10",
     "@kyvg/vue3-notification": "^3.3.0",
